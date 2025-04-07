@@ -41,7 +41,7 @@
             </div>
 
             <a
-              href="/LATEST_KANISHK_RESUME__Full_Stack_Developer_Added_Certificates.pdf"
+              href="/images/LATEST_KANISHK_RESUME__Full_Stack_Developer_added_portfolio.pdf"
               target="_blank"
               style="text-decoration: none"
             >
@@ -432,36 +432,43 @@
             Questions, Thoughts, Or Just Want To Say Hello?
           </div>
           <div class="form">
-            <input
-              class="form-field-container"
-              type="text"
-              name="Name"
-              placeholder="Enter your name"
-            />
-            <input
-              class="form-field-container"
-              type="text"
-              name="email"
-              placeholder="Enter your email address"
-            />
-            <input
-              class="form-field-container"
-              type="text"
-              name="Name"
-              placeholder="Enter your subject"
-            />
-            <textarea
-              class="form-field-container formfield-textarea"
-              name="message"
-              placeholder="Enter your message"
-              rows="10"
-              cols="30"
-            ></textarea>
-            <div class="send-message">
-              <button class="btn-pink btn-project btn-contact">
-                Send Message <i class="submit-icon fa-solid fa-paper-plane"></i>
-              </button>
-            </div>
+            <form action="" id="contact-form" class="form">
+              <input
+                class="form-field-container"
+                type="text"
+                name="user_name"
+                placeholder="Enter your name"
+                required
+              />
+              <input
+                class="form-field-container"
+                type="email"
+                name="user_email"
+                placeholder="Enter your email address"
+                required
+              />
+              <input
+                class="form-field-container"
+                type="text"
+                name="subject"
+                placeholder="Enter your subject"
+                required
+              />
+              <textarea
+                class="form-field-container formfield-textarea"
+                name="message"
+                placeholder="Enter your message"
+                rows="10"
+                cols="30"
+                required
+              ></textarea>
+              <div class="send-message">
+                <button class="btn-pink btn-project btn-contact">
+                  Send Message
+                  <i class="submit-icon fa-solid fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -512,6 +519,30 @@
         backSpeed: 80,
         backDelay: 1000,
       });
+    </script>
+    <!-- email js -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init("QwH0rI3_HO_dgfFZV"); // replace with your actual public key
+      })();
+    </script>
+    <script>
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          emailjs.sendForm("service_ypljs6t", "template_lzc4yyw", this).then(
+            function () {
+              alert("Message sent successfully!");
+              document.getElementById("contact-form").reset();
+            },
+            function (error) {
+              alert("Oops... something went wrong: " + JSON.stringify(error));
+            }
+          );
+        });
     </script>
   </body>
 </html>
