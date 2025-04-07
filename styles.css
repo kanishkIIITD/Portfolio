@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap");
 
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: "Be Vietnam Pro", sans-serif;
   scroll-behavior: smooth;
@@ -19,7 +19,7 @@
   margin: 0 auto;
 }
 
-/* navigation bar styling start */
+/* Navigation Bar */
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -29,7 +29,6 @@
 
 .nav-bar-name {
   display: flex;
-  /* justify-content: baseline; */
   align-items: center;
 }
 
@@ -61,13 +60,11 @@
   font-weight: bold;
   transition: 1s;
 }
-/* navigation bar end */
 
-/* hero section start */
+/* Hero Section */
 .hero-section {
   position: relative;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   gap: 5rem;
   margin: 4rem auto;
@@ -80,7 +77,6 @@
   user-select: none;
   font-size: 7em;
   color: rgb(231, 231, 231);
-
   bottom: -16%;
   left: -5%;
   font-weight: bold;
@@ -130,6 +126,7 @@
   position: relative;
   z-index: 1;
 }
+
 .btn-pink::before {
   content: "";
   position: absolute;
@@ -143,11 +140,12 @@
   transform-origin: left;
   transition: all 0.8s;
 }
+
 .btn-pink:hover::before {
   transform: scaleX(1);
 }
+
 .btn-pink:hover {
-  /* border: solid 3px #e84949; */
   color: black;
 }
 
@@ -163,7 +161,6 @@
   animation-duration: 5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  /* animation: scaleImage 5s linear infinite; */
 }
 
 .user img {
@@ -174,19 +171,15 @@
   0% {
     filter: grayscale(0);
     transform: scale(1);
-    /* box-shadow: 3px 3px 10px black; */
   }
-
   50% {
     filter: grayscale(1);
     transform: scale(0.9);
     box-shadow: 3px 3px 10px black;
   }
-
   100% {
     filter: grayscale(0);
     transform: scale(1);
-    /* box-shadow: 3px 3px 10px black; */
   }
 }
 
@@ -201,17 +194,9 @@
 }
 
 @keyframes dotsAnimation {
-  /* 0% {
-    transform: translateY(0px);
-  } */
-
   50% {
     transform: translateY(-15px);
   }
-
-  /* 100% {
-    transform: translateY(0px);
-  } */
 }
 
 .circle {
@@ -257,7 +242,6 @@
   animation-duration: 5s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
-  /* animation: shakeEffectPlus 5s ease-in infinite; */
 }
 
 @keyframes shakeEffectPlus {
@@ -275,7 +259,6 @@
   animation-duration: 5s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
-  /* animation: zigzagAnimation 5s ease-in infinite; */
 }
 
 @keyframes zigzagAnimation {
@@ -285,34 +268,7 @@
   }
 }
 
-/* .projects {
-  background-color: rgb(231, 231, 231);
-} */
-
-@media (max-width: 1300px) {
-  .hero-section {
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    /* align-items: center; */
-  }
-
-  .hero-section-left {
-    align-items: center;
-  }
-
-  .hero-section-description {
-    text-align: center;
-  }
-
-  .faded-text {
-    opacity: 0;
-  }
-}
-
-/* hero section end */
-
-/* experience section start */
+/* Experience Section */
 .experience-section {
   background-color: rgb(231, 231, 231);
   margin-top: 4rem;
@@ -321,11 +277,9 @@
 #experience1 {
   background-image: url(images/projects/chrome_mUtMMUHKP7.png);
 }
-/* experience section end */
 
-/* projects section start */
+/* Projects Section */
 .project-section {
-  /* background-color: rgb(231, 231, 231); */
   margin-top: 4rem;
 }
 
@@ -359,7 +313,6 @@
 
 .project-card::before {
   content: "";
-  /* background: linear-gradient(45deg, #343d68, #343d68be, #343d687c); */
   background: #1f1f1f9a;
   position: absolute;
   top: 0;
@@ -426,7 +379,7 @@
   flex-direction: column;
   gap: 1rem;
   color: white;
-  padding: 2em em;
+  padding: 2em;
   bottom: 20%;
   position: absolute;
   z-index: 5;
@@ -485,38 +438,7 @@
   border: none;
 }
 
-@media (max-width: 1300px) {
-  .project-card {
-    height: 300px;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-  }
-
-  #project2 {
-    margin-left: 0%;
-  }
-
-  #project4 {
-    margin-left: 0%;
-  }
-
-  .project-content {
-    transform: scale(0.5);
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-  }
-
-  .project-container {
-    gap: 60px;
-  }
-}
-
-/* project section end */
-
-/* skills section start */
+/* Skills Section */
 .skills-logo {
   width: 90px;
   transition-duration: 0.4s;
@@ -541,7 +463,6 @@
   font-weight: bold;
   color: rgb(231, 231, 231);
   bottom: -34.5%;
-  overflow-y: hidden;
   right: -5%;
   user-select: none;
 }
@@ -593,36 +514,7 @@
   text-align: justify;
 }
 
-@media (max-width: 1300px) {
-  .text-position {
-    opacity: 0;
-  }
-
-  .skill-section {
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .skill-section-left {
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
-  .skill-section-right {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .skill-heading {
-    text-align: center;
-  }
-}
-/* skills section end */
-
-/* contact me section start */
-
+/* Contact Me Section */
 .contact-me-section {
   width: 100%;
   background-color: rgb(231, 231, 231);
@@ -679,15 +571,10 @@
   transform: scale(0.9);
 }
 
-/* contact me section end */
-
-/* footer start */
-
+/* Footer */
 .footer {
   margin-top: -1px;
   background: #343d68;
-  padding-top: 5rem;
-  padding-bottom: 0rem;
   padding: 5rem;
   position: relative;
 }
@@ -703,10 +590,7 @@
 
 .footer-content {
   display: flex;
-  /* max-width: 70%;
-  margin: 0 auto; */
   justify-content: space-between;
-  /* align-items: center; */
   padding: 1.2rem;
 }
 
@@ -730,9 +614,7 @@
   gap: 0.8rem;
 }
 
-/* footer end */
-
-/* toast */
+/* Toast */
 .toast {
   visibility: hidden;
   min-width: 250px;
@@ -755,4 +637,249 @@
 .toast.show {
   visibility: visible;
   opacity: 1;
+}
+
+/* --------------------------------------------------
+   MEDIA QUERIES
+-----------------------------------------------------*/
+
+/* Large screens (max-width: 1300px) */
+/* Already handling hero layout and project card scale */
+@media (max-width: 1300px) {
+  .hero-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-section-left {
+    align-items: center;
+  }
+
+  .hero-section-description {
+    text-align: center;
+  }
+
+  .faded-text {
+    opacity: 0;
+  }
+
+  .project-card {
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  #project2 {
+    margin-left: 0;
+  }
+
+  .project-content {
+    transform: scale(0.5);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .project-container {
+    gap: 60px;
+  }
+
+  .text-position {
+    opacity: 0;
+  }
+
+  .skill-section {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .skill-section-left,
+  .skill-section-right {
+    width: 100%;
+    align-items: center;
+  }
+
+  .skill-heading {
+    text-align: center;
+  }
+}
+
+/* Tablet screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+    padding: 0 1rem;
+  }
+
+  .nav-bar-bookmark {
+    gap: 1.5rem;
+  }
+
+  .hero-section {
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-section-heading {
+    font-size: 28px;
+  }
+
+  .hero-section-sub-heading {
+    font-size: 38px;
+    line-height: 38px;
+  }
+
+  .hero-section-description {
+    width: 90%;
+  }
+
+  .page-header {
+    font-size: 70px;
+  }
+
+  .project-heading {
+    font-size: 40px;
+  }
+
+  .project-subHeading {
+    font-size: 14px;
+    width: 80%;
+  }
+
+  .skill-heading {
+    font-size: 40px;
+  }
+
+  .text-position {
+    font-size: 10em;
+    bottom: -30%;
+    right: -3%;
+  }
+}
+
+/* Mobile screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .nav-bar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-bar-name p {
+    font-size: 24px;
+  }
+
+  .nav-bar-bookmark {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-section {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .hero-section-left {
+    padding: 0 1rem;
+  }
+
+  .hero-section-heading {
+    font-size: 24px;
+  }
+
+  .hero-section-sub-heading {
+    font-size: 32px;
+  }
+
+  .hero-section-description {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .btn-pink {
+    padding: 0.6rem 1.5rem;
+    font-size: 16px;
+  }
+
+  .project-container {
+    padding: 2rem 0;
+    gap: 40px;
+  }
+
+  .project-heading {
+    font-size: 32px;
+  }
+
+  .project-subHeading {
+    font-size: 12px;
+    width: 90%;
+  }
+
+  .form {
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  .form-field-container {
+    font-size: 16px;
+    padding: 0 1rem;
+  }
+}
+
+/* Extra Small screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .nav-bar-bookmark div a {
+    font-size: 16px;
+  }
+
+  .hero-section-heading {
+    font-size: 20px;
+  }
+
+  .hero-section-sub-heading {
+    font-size: 28px;
+  }
+
+  .hero-section-description {
+    font-size: 13px;
+  }
+
+  .page-header {
+    font-size: 50px;
+  }
+
+  .project-heading {
+    font-size: 28px;
+  }
+
+  .project-subHeading {
+    font-size: 11px;
+  }
+
+  .skill-heading {
+    font-size: 32px;
+  }
+
+  .text-position {
+    display: none;
+  }
+
+  .footer .text {
+    font-size: 3em;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Make buttons and inputs full-width */
+  input,
+  button,
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
