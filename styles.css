@@ -312,9 +312,20 @@
 
 /* hero section end */
 
+/* experience section start */
+.experience-section {
+  background-color: rgb(231, 231, 231);
+  margin-top: 4rem;
+}
+
+#experience1 {
+  background-image: url(images/projects/chrome_Tff8ezHitA.png);
+}
+/* experience section end */
+
 /* projects section start */
 .project-section {
-  background-color: rgb(231, 231, 231);
+  /* background-color: rgb(231, 231, 231); */
   margin-top: 4rem;
 }
 
@@ -376,21 +387,12 @@
 }
 
 #project1 {
-  background-image: url(images/projects/Project1.png);
+  background-image: url(images/projects/chrome_0xEDWs78Ze.png);
 }
 
 #project2 {
   margin-left: 10%;
-  background-image: url(images/projects/Project2.png);
-}
-
-#project3 {
-  background-image: url(images/projects/Project3.png);
-}
-
-#project4 {
-  margin-left: 10%;
-  background-image: url(images/projects/Project4.png);
+  background-image: url(images/projects/chrome_xjjSyAEgpZ.png);
 }
 
 .project-number {
@@ -515,7 +517,6 @@
 /* project section end */
 
 /* skills section start */
-
 .skills-logo {
   width: 90px;
   transition-duration: 0.4s;
@@ -541,7 +542,7 @@
   color: rgb(231, 231, 231);
   bottom: -34.5%;
   overflow-y: hidden;
-  right: -25%;
+  right: -5%;
   user-select: none;
 }
 
