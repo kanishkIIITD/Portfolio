@@ -4,20 +4,306 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <meta name="description" content="Kanishk Singh - Full Stack Developer Portfolio. Explore my projects, skills, and experience in web development." />
+    <meta name="keywords" content="Full Stack Developer, Web Developer, MERN Stack, Portfolio, Kanishk Singh" />
+    <meta name="author" content="Kanishk Singh" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Kanishk Singh - Full Stack Developer Portfolio" />
+    <meta property="og:description" content="Explore my projects, skills, and experience in web development." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-portfolio-url.com" />
+    <meta property="og:image" content="images/userAsset/1662289556813 (1).jpeg" />
+    
+    <title>Kanishk Singh - Full Stack Developer Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/x-icon" href="/images/userAsset/k_logo.jpg" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      .form-field-container {
+        transition: all 0.3s ease;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 12px 15px;
+        width: 100%;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+      
+      .form-field-container:focus {
+        border-color: #ff4d4d;
+        box-shadow: 0 0 0 3px rgba(255, 77, 77, 0.1);
+        outline: none;
+      }
+      
+      .formfield-textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+      
+      .btn-contact {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .btn-contact:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+      }
+      
+      .btn-contact:active {
+        transform: translateY(0);
+      }
+      
+      .btn-contact i {
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+      }
+      
+      .btn-contact:hover i {
+        transform: translateX(5px);
+      }
+      
+      .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      .project-skill {
+        transition: transform 0.3s ease;
+      }
+      
+      .project-skill:hover {
+        transform: scale(1.1);
+      }
+      
+      .btn-project {
+        transition: all 0.3s ease;
+      }
+      
+      .btn-project:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
+      }
+      
+      .nav-bar-bookmark div a {
+        position: relative;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        padding: 5px 0;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-bar-bookmark div a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #ff4d4d;
+        transition: width 0.3s ease;
+      }
+      
+      .nav-bar-bookmark div a:hover {
+        color: #ff4d4d;
+      }
+      
+      .nav-bar-bookmark div a:hover::after {
+        width: 100%;
+      }
+      
+      .nav-bar-bookmark div a.active {
+        color: #ff4d4d;
+      }
+      
+      .nav-bar-bookmark div a.active::after {
+        width: 100%;
+      }
+      
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #ff4d4d;
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1000;
+        border: none;
+      }
+      
+      .back-to-top.visible {
+        opacity: 1;
+      }
+      
+      .back-to-top:hover {
+        background: #ff3333;
+      }
+      
+      /* Loading Animation */
+      .loading-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+      
+      .loading-animation.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .loader {
+        width: 48px;
+        height: 48px;
+        border: 5px solid #ff4d4d;
+        border-bottom-color: transparent;
+        border-radius: 50%;
+        animation: rotation 1s linear infinite;
+      }
+      
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      
+      /* Improved Toast Notifications */
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%) translateY(100px);
+        background: #333;
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .toast.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+      
+      .toast.success {
+        background: #4CAF50;
+      }
+      
+      .toast.error {
+        background: #f44336;
+      }
+      
+      .toast i {
+        font-size: 20px;
+      }
+      
+      /* Mobile Menu */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #333;
+        cursor: pointer;
+        padding: 10px;
+      }
+      
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+        
+        .nav-bar-bookmark {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 80%;
+          height: 100vh;
+          background: white;
+          flex-direction: column;
+          padding: 80px 20px;
+          transition: right 0.3s ease;
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-bar-bookmark.active {
+          right: 0;
+        }
+        
+        .nav-bar-bookmark div {
+          margin: 15px 0;
+        }
+        
+        .nav-bar-bookmark div a {
+          font-size: 18px;
+        }
+      }
+    </style>
   </head>
   <body>
+    <!-- Loading Animation -->
+    <div class="loading-animation" id="loadingAnimation">
+      <div class="loader"></div>
+    </div>
+    
+    <!-- Improved Toast -->
+    <div id="toast" class="toast">
+      <i class="fa-solid fa-circle-info"></i>
+      <span>Message sent successfully!</span>
+    </div>
+    <button class="back-to-top" id="backToTop">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
     <div id="wrapper">
       <!-- container -->
       <div class="container">
         <!-- navigation bar -->
         <div class="nav-bar">
           <div class="nav-bar-name">
-            <img src="images/userAsset/k_logo.jpg" />
-            <p>anishk Singh</p>
+            <!-- <img src="images/userAsset/k_logo.jpg" /> -->
+            <p>Kanishk Singh</p>
           </div>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fa-solid fa-bars"></i>
+          </button>
           <div class="nav-bar-bookmark">
             <div><a href="#experience">Experience</a></div>
             <div><a href="#projects">Projects</a></div>
@@ -29,15 +315,15 @@
         <div class="hero-section">
           <div class="faded-text">KANISHK SINGH</div>
           <div class="hero-section-left">
-            <div class="hero-section-heading">Hi! Kanishk Singh</div>
+            <div class="hero-section-heading">Hi, I'm Kanishk</div>
 
             <div class="hero-section-heading hero-section-sub-heading">
               I am a <span class="role"></span>
             </div>
 
             <div class="hero-section-description">
-              I’m a software developer and here is my portfolio website. Here
-              you’ll learn about my journey as a software developer.
+              I'm a software developer and here is my portfolio website. Here
+              you'll learn about my journey as a software developer.
             </div>
 
             <a
@@ -498,13 +784,9 @@
       </div>
     </div>
 
-    <!-- toast -->
-    <div id="toast" class="toast">Message sent successfully!</div>
-
     <!-- JS script, will learn later -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script
-      src="https://kit.fontawesome.com/33a8856a38.js"
       crossorigin="anonymous"
     ></script>
     <script>
@@ -536,14 +818,25 @@
         .getElementById("contact-form")
         .addEventListener("submit", function (e) {
           e.preventDefault();
+          
+          const submitButton = document.querySelector('.btn-contact');
+          const originalText = submitButton.innerHTML;
+          
+          submitButton.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+          submitButton.disabled = true;
 
           emailjs.sendForm("service_ypljs6t", "template_lzc4yyw", this).then(
             function () {
-              showToast("Message sent successfully!");
+              showToast("Message sent successfully!", "success");
               document.getElementById("contact-form").reset();
+              submitButton.innerHTML = originalText;
+              submitButton.disabled = false;
             },
             function (error) {
-              showToast("Oops! Something went wrong.");
+              showToast("Oops! Something went wrong. Please try again later.", "error");
+              submitButton.innerHTML = originalText;
+              submitButton.disabled = false;
+              console.error("EmailJS error:", error);
             }
           );
         });
@@ -551,14 +844,104 @@
 
     <!-- toast -->
     <script>
-      function showToast(message) {
-        const toast = document.getElementById("toast");
-        toast.textContent = message;
-        toast.classList.add("show");
+      function showToast(message, type = 'success') {
+        const toast = document.getElementById('toast');
+        const toastSpan = toast.querySelector('span');
+        const toastIcon = toast.querySelector('i');
+        
+        toastSpan.textContent = message;
+        toast.className = 'toast';
+        
+        if (type === 'success') {
+          toast.classList.add('success');
+          toastIcon.className = 'fa-solid fa-circle-check';
+        } else if (type === 'error') {
+          toast.classList.add('error');
+          toastIcon.className = 'fa-solid fa-circle-exclamation';
+        }
+        
+        toast.classList.add('show');
+        
         setTimeout(() => {
-          toast.classList.remove("show");
-        }, 3000); // hides after 3 seconds
+          toast.classList.remove('show');
+        }, 3000);
       }
+    </script>
+
+    <script>
+      // Active Navigation Link
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-bar-bookmark div a');
+      
+      function setActiveLink() {
+        const scrollY = window.pageYOffset;
+        
+        sections.forEach(section => {
+          const sectionHeight = section.offsetHeight;
+          const sectionTop = section.offsetTop - 50;
+          const sectionId = section.getAttribute('id');
+          
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${sectionId}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }
+      
+      window.addEventListener('scroll', setActiveLink);
+      
+      // Back to Top Button
+      const backToTopButton = document.getElementById('backToTop');
+      
+      window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+          backToTopButton.classList.add('visible');
+        } else {
+          backToTopButton.classList.remove('visible');
+        }
+      });
+      
+      backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    </script>
+
+    <script>
+      // Mobile Menu
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      const navBarBookmark = document.querySelector('.nav-bar-bookmark');
+      
+      mobileMenuBtn.addEventListener('click', () => {
+        navBarBookmark.classList.toggle('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.className = navBarBookmark.classList.contains('active') 
+          ? 'fa-solid fa-xmark' 
+          : 'fa-solid fa-bars';
+      });
+      
+      // Close mobile menu when clicking a link
+      document.querySelectorAll('.nav-bar-bookmark a').forEach(link => {
+        link.addEventListener('click', () => {
+          navBarBookmark.classList.remove('active');
+          const icon = mobileMenuBtn.querySelector('i');
+          icon.className = 'fa-solid fa-bars';
+        });
+      });
+      
+      // Loading Animation
+      window.addEventListener('load', () => {
+        const loadingAnimation = document.getElementById('loadingAnimation');
+        setTimeout(() => {
+          loadingAnimation.classList.add('fade-out');
+        }, 500);
+      });
     </script>
   </body>
 </html>
